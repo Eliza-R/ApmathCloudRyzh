@@ -1,0 +1,2 @@
+# ApmathCloudRyzh
+Azure Web App
