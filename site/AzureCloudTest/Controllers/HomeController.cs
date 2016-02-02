@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AzureCloudTest.Controllers
 {
@@ -13,18 +17,15 @@ namespace AzureCloudTest.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+        public FileResult GetData(string year)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(HttpContext.Server.MapPath("~/data/" + year + ".tsv"));
+            string fileName = "data.tsv";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+
     }
 }
