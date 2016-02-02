@@ -26,6 +26,9 @@ namespace AzureCloudTest
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/d3").Include(
+                      "~/Scripts/d3/d3.min.js"));
         }
     }
 }
