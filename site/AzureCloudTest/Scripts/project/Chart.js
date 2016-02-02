@@ -189,7 +189,7 @@ function comparingGrades(a, b) {
 d3.tsv("GetData?year=2014", function (error, data) {
     draw(error, data);
 });
-
-$.get("Home/GetTxt", null, (data) => {
+var yearTest = "2014";
+$.get("Home/GetData", { year: yearTest}, (data) => {
     console.log(data);
-})
+});
