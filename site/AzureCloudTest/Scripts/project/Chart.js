@@ -190,3 +190,6 @@ d3.tsv("GetData?year=2014", function (error, data) {
     draw(error, data);
 });
 
+$.get("Home/GetTxt", null, (data) => {
+    console.log(data);
+})

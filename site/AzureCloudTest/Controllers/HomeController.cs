@@ -25,6 +25,13 @@ namespace AzureCloudTest.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
+        public FileResult GetTxt()
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(HttpContext.Server.MapPath("~/data/test.txt"));
+            string fileName = "data.tsv";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
 
 
     }
