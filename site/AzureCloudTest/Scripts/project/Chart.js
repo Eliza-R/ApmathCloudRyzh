@@ -97,7 +97,7 @@ function changeYear() {
     console.log("changeYear()");
     var year = document.getElementById("year").value;
     console.log(year);
-    d3.tsv("GetData?year=" + year, function (error, data) {
+    d3.tsv("/data/" + year + ".tsv", function (error, data) {
         x.domain(data.map(function (d) { return d.letter; }));
         y.domain([0, d3.max(data, function (d) { return d.frequency; })]);
 
@@ -185,11 +185,18 @@ function comparingGrades(a, b) {
     return (num(a) < num(b)) || ((num(a) === num(b)) && lett(a) < lett(b)) ? -1 : (num(a) > num(b)) || ((num(a) === num(b)) && lett(a) > lett(b)) ? 1 : a >= b ? 0 : NaN;
 }
 
+var year = document.getElementById("year").value;
 
-d3.tsv("GetData?year=2014", function (error, data) {
+d3.tsv("/data/" + year + ".tsv", function (error, data) {
     draw(error, data);
 });
-var yearTest = "2014";
-$.get("Home/GetData", { year: yearTest}, (data) => {
-    console.log(data);
-});
+//var yearTest = "2014";
+//$.get("Home/GetData", { year: yearTest}, (data) => {
+//    console.log(data);
+//});
+//$.get("Home/GetTxt", null, (data) => {
+//    console.log(data);
+//});
+//$.get("Home/GetJson", null, (data) => {
+//    console.log(data);
+//});
