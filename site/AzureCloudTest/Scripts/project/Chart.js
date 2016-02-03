@@ -97,7 +97,7 @@ function changeYear() {
     console.log("changeYear()");
     var year = document.getElementById("year").value;
     console.log(year);
-    d3.tsv("/data/" + year + ".tsv", function (error, data) {
+    d3.tsv("/data/" + year + ".txt", function (error, data) {
         x.domain(data.map(function (d) { return d.letter; }));
         y.domain([0, d3.max(data, function (d) { return d.frequency; })]);
 
@@ -187,7 +187,7 @@ function comparingGrades(a, b) {
 
 var year = document.getElementById("year").value;
 
-d3.tsv("/data/" + year + ".tsv", function (error, data) {
+d3.tsv("/data/" + year + ".txt", function (error, data) {
     draw(error, data);
 });
 //var yearTest = "2014";
